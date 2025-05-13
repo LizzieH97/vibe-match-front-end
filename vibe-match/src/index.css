@@ -1,5 +1,4 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 100;
 
@@ -7,14 +6,26 @@
   background-color: #5a39a1;
 }
 
-
-body {
-  min-width: 320px;
+.app-container {
+  display: flex;
   min-height: 100vh;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.side-menu {
+  width: 200px;
+  display: flex;
+  flex-direction: column;
+  border-right: 2px solid #3e9b4b;
+}
+
+.main-content {
+    flex:1;
 }
 
 .page-header {
-    border-bottom: 2px solid #3e9b4b;
+  border-bottom: 2px solid #3e9b4b;
 }
 
 #brandName {
@@ -22,27 +33,21 @@ body {
 }
 
 .search-bar {
-    margin: 100px auto;
-    width: 500px;
-    height: 50px;
-    border-radius: 1em;
-    border: 5px solid #3e9b4b;
-    background-color: #60878b;
+  margin: 100px auto;
+  width: 500px;
+  height: 50px;
+  border-radius: 1em;
+  border: 5px solid #3e9b4b;
+  background-color: #60878b;
 }
 
 .song-table {
-    border:2px solid #3e9b4b;
+  border: 2px solid #3e9b4b;
+  margin: auto;
 }
 
 .table-headings {
-    font-size: 20px;
-    border-bottom: 2px solid #3e9b4b;
+  font-size: 20px;
+  border-bottom: 2px solid #3e9b4b;
 }
 
-.side-menu {
-    width: 200px;
-    height: 800px;
-    display: flex;
-    flex-direction: column;
-    border-right: 2px solid #3e9b4b;
-}
