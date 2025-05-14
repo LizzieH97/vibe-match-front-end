@@ -3,24 +3,29 @@ import "./App.css";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import ChooseByGenre from "./pages/ChooseByGenre";
-import ChooseByTempo from "./pages/ChooseByTempo";
-import ChooseByDanceability from "./pages/ChooseByDanceAbility";
-import filterData from "./data/filterData";
+import choiceData from "./data/ChoicesData";
 
-import ChooseByEra from "./pages/ChooseByEra";
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/genres" element={<ChooseByGenre />} />
-        <Route path="/tempo" element={<ChooseByTempo />} />
+        <Route
+          path="/genres"
+          element={<ChooseByGenre filter={choiceData.genre} />}
+        />
+        <Route
+          path="/tempo"
+          element={<ChooseByTempo filter={choiceData.tempo} />}
+        />
         <Route
           path="/danceability"
-          element={<ChooseByDanceability filter={filterData.danceability} />}
+          element={<ChooseByDanceability filter={choiceData.danceability} />}
         />
-        <Route path="/era" element={<ChooseByEra />} />
+        <Route
+          path="/era"
+          element={<ChooseByEra filter={choiceData.era} />}
+        />
       </Routes>
     </BrowserRouter>
   );

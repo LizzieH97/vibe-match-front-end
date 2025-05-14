@@ -33,10 +33,3 @@ export default function Home() {
                   <td className="song-artist"></td>
                 </tr>
               </tbody>
-            </table>
-          </main>
-        </div>
-      </div>
-    </>
-  );
-}
