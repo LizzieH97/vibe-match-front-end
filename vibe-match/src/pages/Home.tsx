@@ -1,7 +1,8 @@
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
+import SongTable from "../components/SongTable";
 
-export default function Home() {
+const Home = () => {
   return (
     <>
       <div className="app-container">
@@ -17,25 +18,12 @@ export default function Home() {
             {/* <button>
           onClick={() =>}
         </button> */}
-            <table className="song-table">
-              <thead>
-                <tr className="table-headings">
-                  <th>#</th>
-                  <th>SONG TITLE</th>
-                  <th>ARTIST</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className="table-rows">
-                  <td className="song-numbers"></td>
-                  <td className="song-title"></td>
-                  <td className="song-artist"></td>
-                </tr>
-              </tbody>
-            </table>
+            <SongTable />
           </main>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default Home;
