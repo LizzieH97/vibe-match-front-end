@@ -1,6 +1,12 @@
 import SideBar from "../components/SideBar";
+// SongFilterDisplay
 
-export default function ChooseByDanceability() {
+type ChooseByDanceAbilityProp = {
+  subtitle: string;
+  buttons: string[];
+};
+
+const ChooseByDanceability = (filter: ChooseByDanceAbilityProp) => {
   return (
     <>
       <div className="app-container">
@@ -10,19 +16,22 @@ export default function ChooseByDanceability() {
             <h1 id="brandName">🎶 Vibe Match</h1>
           </header>
           <main className="genre-grid">
-            <h2 className="subtitle">
-              Okay! Let's choose your vibe by dance level. Choose a genre below:
-            </h2>
+            <h2 className="subtitle">{filter.subtitle}</h2>
             <a href="/" id="back-button">
               Want to go back to songs?
             </a>
-            <button className="genre-button">Dance?</button>
+            {filter?.buttons?.map((btn) => {
+              return <button className="genre-button">{btn}</button>;
+            })}
+            {/* <button className="genre-button">Dance?</button>
             <button className="genre-button">Not dance?</button>
             <button className="genre-button">Some sort of difference</button>
-            <button className="genre-button">Idk</button>
+            <button className="genre-button">Idk</button> */}
           </main>
         </div>
       </div>
     </>
   );
-}
+};
+
+export default ChooseByDanceability;

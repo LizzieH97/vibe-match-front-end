@@ -27,10 +27,10 @@ export default function Home() {
                 </tr>
               </thead>
               <tbody>
-                <tr className="">
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                <tr className="table-rows">
+                  <td className="song-numbers"></td>
+                  <td className="song-title"></td>
+                  <td className="song-artist"></td>
                 </tr>
               </tbody>
             </table>

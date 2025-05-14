@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import ChooseByGenre from "./pages/ChooseByGenre";
 import ChooseByTempo from "./pages/ChooseByTempo";
 import ChooseByDanceability from "./pages/ChooseByDanceAbility";
+import filterData from "./data/filterData";
 
 import ChooseByEra from "./pages/ChooseByEra";
 export default function App() {
@@ -15,15 +16,19 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/genres" element={<ChooseByGenre />} />
         <Route path="/tempo" element={<ChooseByTempo />} />
-        <Route path="/danceability" element={<ChooseByDanceability />} />
+        <Route
+          path="/danceability"
+          element={<ChooseByDanceability filter={filterData.danceability} />}
+        />
         <Route path="/era" element={<ChooseByEra />} />
       </Routes>
     </BrowserRouter>
   );
 }
-const rootElement = document.getElementById("root");
 
-if (rootElement) {
-  const root = ReactDOM.createRoot(rootElement);
-  root.render(<App />);
-}
+// const rootElement = document.getElementById("root");
+
+// if (rootElement) {
+//   const root = ReactDOM.createRoot(rootElement);
+//   root.render(<App />);
+// }``
