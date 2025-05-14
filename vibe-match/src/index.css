@@ -3,7 +3,8 @@
   font-weight: 100;
 
   color: rgba(255, 255, 255, 0.87);
-  background-color: #5a39a1;
+  background: #6E06FF;
+  background: linear-gradient(135deg, #6E06FF, #AE4FD6);
 }
 
 .app-container {
