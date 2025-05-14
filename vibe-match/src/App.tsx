@@ -12,6 +12,12 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/genres" element={<Choices choice={ChoiceData.genre} />} />
+        <Route
+          path="/danceability"
+          element={<Choices choice={ChoiceData.danceability} />}
+        />
+        <Route path="/tempo" element={<Choices choice={ChoiceData.tempo} />} />
+        <Route path="/era" element={<Choices choice={ChoiceData.era} />} />
       </Routes>
     </BrowserRouter>
   );

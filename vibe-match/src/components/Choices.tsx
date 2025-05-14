@@ -5,7 +5,7 @@ import SideBar from "./SideBar";
 type ChoiceProps = {
   choice: {
     subtitle: string;
-    options: string[];
+    buttons: string[];
   };
 };
 
@@ -21,9 +21,9 @@ export default function Choices({ choice }: ChoiceProps) {
             <a href="/" id="back-button">
               Want to go back to songs?
             </a>
-            {choice.options.map((option, idex) => (
+            {choice.buttons.map((btn, idex) => (
               <button key={idex} className="choice-button">
-                {option}
+                {btn}
               </button>
             ))}
           </main>
