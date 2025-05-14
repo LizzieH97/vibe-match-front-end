@@ -84,7 +84,7 @@
   font-size: 20px;
   border-bottom: 2px solid #3e9b4b;
 }
-.genre-grid {
+.choice-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-flow: row;
@@ -106,14 +106,14 @@
   font-size: small;
   align-items: center;
 }
-.genre-button {
-  background-color: #8955f8;
+.choice-button {
   height: 70px;
   width: 150px;
   border-radius: 30px;
-  border: 5px solid #311e58;
+  border: 5px solid #3e9b4b;
+  background-color: #60878b;
   text-decoration: none;
-  color: white;
+  color: #143118;
   font-weight: 800;
   font-size: larger;
   display: flex;
