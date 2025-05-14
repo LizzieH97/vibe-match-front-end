@@ -1,3 +1,4 @@
+import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 
 export default function ChooseByEra() {
@@ -6,9 +7,7 @@ export default function ChooseByEra() {
       <div className="app-container">
         <SideBar />
         <div className="main-content">
-          <header className="page-header">
-            <h1 id="brandName">🎶 Vibe Match</h1>
-          </header>
+          <Header />
           <main className="choice-grid">
             <h2 className="subtitle">
               Okay! Let's choose your vibe by the era. Choose an era below:

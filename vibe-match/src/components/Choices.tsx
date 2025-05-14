@@ -1,4 +1,5 @@
 import ChoiceData from "../data/ChoicesData";
+import Header from "./Header";
 import SideBar from "./SideBar";
 
 type ChoiceProps = {
@@ -14,9 +15,7 @@ export default function Choices({ choice }: ChoiceProps) {
       <div className="app-container">
         <SideBar />
         <div className="main-content">
-          <header className="page-header">
-            <h1 id="brandName">🎶 Vibe Match</h1>
-          </header>
+          <Header />
           <main className="choice-grid">
             <h2 className="subtitle">{choice.subtitle}</h2>
             <a href="/" id="back-button">
