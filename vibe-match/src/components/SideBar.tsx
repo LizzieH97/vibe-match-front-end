@@ -1,6 +1,5 @@
-export default function SideBar() {
+const SideBar = () => {
   return (
-    <>
       <aside className="side-menu">
         <p className="side-menu-intro">Match your mood below:</p>
         <a href="/genres" className="side-menu-button">
@@ -19,6 +18,7 @@ export default function SideBar() {
           Need some help? Inspiration?
         </a>
       </aside>
-    </>
   );
 }
+
+export default SideBar;
