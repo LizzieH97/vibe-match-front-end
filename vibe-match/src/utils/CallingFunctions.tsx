@@ -1,10 +1,5 @@
 import { useEffect, useState } from "react";
-import {
-  fetchAllSongs,
-  fetchSongsByGenre,
-  fetchSongsByArtist,
-  fetchAllGenres,
-} from "./APICalls";
+import { fetchAllSongs, fetchSongsByGenre, fetchAllGenres } from "./APICalls";
 
 import type { Song } from "../types/Song";
 import type { Genre } from "../types/Genre";
