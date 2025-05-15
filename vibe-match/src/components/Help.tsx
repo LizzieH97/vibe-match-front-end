@@ -20,13 +20,3 @@ const Help = () => {
                             complement your vibe, and if you click the button below it will
                             take you back to the song input. Happy vibing! 🎶{" "}
                         </p>
-                        <a href="/" id="back-button" className="help-back">
-                            Want to go back to songs?
-                        </a>
-                    </main>
-                </div>
-            </div>
-    );
-};
-
-export default Help;
