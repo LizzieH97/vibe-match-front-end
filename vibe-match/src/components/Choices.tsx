@@ -1,4 +1,5 @@
 import ChoiceData from "../data/ChoicesData";
+import { getAllGenres } from "../utils/CallingFunctions";
 import Header from "./Header";
 import SideBar from "./SideBar";
 
@@ -10,6 +11,9 @@ type ChoiceProps = {
 };
 
 export default function Choices({ choice }: ChoiceProps) {
+  if (choice === ChoiceData.genre) {
+    choice.buttons = getAllGenres();
+  }
   return (
     <>
       <div className="app-container">

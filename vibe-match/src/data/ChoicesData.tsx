@@ -9,7 +9,7 @@ const ChoiceData = {
   },
   genre: {
     subtitle: "Okay! Let's choose your vibe by genre. Choose a genre below:",
-    buttons: ["Some genre", "Some other genre", "Another genre", "etc"],
+    buttons: [],
   },
   tempo: {
     subtitle: "Okay! Let's choose your vibe by tempo. Choose a genre below:",
