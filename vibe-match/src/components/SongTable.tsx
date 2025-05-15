@@ -39,8 +39,11 @@ const SongTable = ({ songInput }: SongTableProps) => {
         margin: "0 auto",
       }}
     >
-      <Table sx={{ minWidth: 400, width: "100%" }} aria-label="simple table">
-        <TableHead sx={{ backgroundColor: "#884fff" }}>
+      <Table
+        className= "song-table"
+        aria-label="table of songs"
+      >
+        <TableHead className="song-table-header">
           <TableRow>
             <TableCell>#</TableCell>
             <TableCell align="center">SONG TITLE</TableCell>
@@ -51,10 +54,7 @@ const SongTable = ({ songInput }: SongTableProps) => {
           {filteredSongs.map((song) => (
             <TableRow
               key={song.id}
-              sx={{
-                "&:last-child td, &:last-child th": { border: 0 },
-                backgroundColor: "#67afa9",
-              }}
+              className="song-table-row"
             >
               <TableCell component="th" scope="row">
                 {song.id}
