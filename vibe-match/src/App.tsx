@@ -1,4 +1,8 @@
 import "./App.css";
+<<<<<<< HEAD
+
+=======
+>>>>>>> 8b489b810d48c687a294678b661f4e2a0fbae8e7
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Choices from "./components/Choices";
