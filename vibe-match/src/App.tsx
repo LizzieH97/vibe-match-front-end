@@ -18,4 +18,9 @@ const App = () => {
                 />
                 <Route path="/tempo" element={<Choices choice={ChoiceData.tempo} />} />
                 <Route path="/help" element={<Help />} />
-         
+            </Routes>
+        </BrowserRouter>
+    );
+};
+
+export default App;
