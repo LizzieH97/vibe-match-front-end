@@ -14,6 +14,10 @@ export default function Home() {
               type="text"
               placeholder="What's the vibe?"
             />
+            <iframe
+              src="https://open.spotify.com/embed/track/1qdiryo9D6QgoZw9beV72q"
+              title="test"
+            ></iframe>
             {/* <button>
           onClick={() =>}
         </button> */}

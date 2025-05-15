@@ -2,9 +2,7 @@ export default function SideBar() {
   return (
     <>
       <aside className="side-menu">
-        <p className="side-menu-intro">
-          Not sure what song to pick? Match your mood below:{" "}
-        </p>
+        <p className="side-menu-intro">Match your mood below:</p>
         <a href="/genres" className="side-menu-button">
           Choose your genre here
         </a>
@@ -17,8 +15,8 @@ export default function SideBar() {
         <a href="/era" className="side-menu-button">
           Choose your era here
         </a>
-        <a href="" className="side-menu-button">
-          Take a look at all of your options here
+        <a href="/help" className="side-menu-button">
+          Need some help? Inspiration?
         </a>
       </aside>
     </>
