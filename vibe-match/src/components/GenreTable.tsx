@@ -7,21 +7,19 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { getAllSongs } from "../utils/CallingFunctions";
+import { getAllSongs, getSongsByGenre } from "../utils/CallingFunctions";
 
-interface SongTableProps {
-  songInput: string;
+interface GenreTableProps {
+  genreId: number;
 }
 
-const SongTable = ({ songInput }: SongTableProps) => {
-  const mockSongs = getAllSongs();
+const GenreTable = ({ genreId }: GenreTableProps) => {
+  const mockSongs = getSongsByGenre(genreId);
 
-  const filteredSongs = mockSongs.filter((song) =>
-    song.track_name.toLowerCase().includes(songInput.toLocaleLowerCase())
-  );
+  const filteredSongs = mockSongs.filter((song) => song.genre.id === genreId);
 
   // to prevent non filtered data from displaying the table
-  if (!songInput) {
+  if (!genreId) {
     return null;
   }
 
@@ -60,4 +58,4 @@ const SongTable = ({ songInput }: SongTableProps) => {
   );
 };
 
-export default SongTable;
+export default GenreTable;

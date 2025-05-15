@@ -1,7 +1,12 @@
 const ChoiceData = {
   danceability: {
     subtitle: "Want to go back to songs?",
-    buttons: ["Dance?", "Not dance?", "Some sort of difference", "idk"],
+    buttons: [
+      "super Dance-y",
+      "a bit dance-y",
+      "not that dance-y",
+      "not dance-y at all",
+    ],
   },
   era: {
     subtitle: "Okay! Let's choose your vibe by the era. Choose an era below:",

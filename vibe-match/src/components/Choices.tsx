@@ -1,7 +1,10 @@
+import { useState } from "react";
 import ChoiceData from "../data/ChoicesData";
 import { getAllGenres } from "../utils/CallingFunctions";
 import Header from "./Header";
 import SideBar from "./SideBar";
+
+import GenreTable from "./GenreTable";
 
 type ChoiceProps = {
   choice: {
@@ -11,9 +14,26 @@ type ChoiceProps = {
 };
 
 export default function Choices({ choice }: ChoiceProps) {
-  if (choice === ChoiceData.genre) {
-    choice.buttons = getAllGenres();
-  }
+  const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
+  const allGenres = getAllGenres();
+
+  const genreName = allGenres.map((genre) => {
+    return genre.genre;
+  });
+
+  const buttonsToRender =
+    choice === ChoiceData.genre ? genreName : choice.buttons;
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const genreNameCurrent = event.currentTarget.innerHTML;
+
+    const foundGenre = allGenres.find(
+      (genre) => genre.genre === genreNameCurrent
+    );
+    if (foundGenre) {
+      setSelectedGenreId(foundGenre.id);
+    }
+  };
+
   return (
     <>
       <div className="app-container">
@@ -25,11 +45,14 @@ export default function Choices({ choice }: ChoiceProps) {
             <a href="/" id="back-button">
               Want to go back to songs?
             </a>
-            {choice.buttons.map((btn, idex) => (
-              <button key={idex} className="choice-button">
+            {buttonsToRender.map((btn, i) => (
+              <button key={i} className="choice-button" onClick={handleClick}>
                 {btn}
               </button>
             ))}
+            {selectedGenreId !== null && (
+              <GenreTable key={selectedGenreId} genreId={selectedGenreId} />
+            )}
           </main>
         </div>
       </div>

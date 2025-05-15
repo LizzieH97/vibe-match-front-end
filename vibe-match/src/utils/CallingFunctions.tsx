@@ -27,9 +27,7 @@ export const getAllGenres = () => {
       .catch((err) => console.error("Error fetching songs:", err));
   }, []);
 
-  return genres.map((genre) => {
-    return genre.genre;
-  });
+  return genres;
 };
 
 export const getSongsByGenre = (genreId: number) => {
