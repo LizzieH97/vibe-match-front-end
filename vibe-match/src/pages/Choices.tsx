@@ -1,12 +1,12 @@
 import { useState } from "react";
 import ChoiceData from "../data/ChoicesData";
 import { getAllGenres } from "../utils/CallingFunctions";
-import Header from "./Header";
-import SideBar from "./SideBar";
+import Header from "../components/Header";
+import SideBar from "../components/SideBar";
 
-import GenreTable from "./GenreTable";
-import DanceTable from "./DanceabilityTable";
-import TempoTable from "./TempoTable";
+import GenreTable from "../components/GenreTable";
+import DanceTable from "../components/DanceabilityTable";
+import TempoTable from "../components/TempoTable";
 
 type ChoiceProps = {
   choice: {

@@ -4,11 +4,7 @@ import SideBar from "../components/SideBar";
 import SongTable from "../components/SongTable";
 
 import type { Song } from "../types/Song";
-import {
-  getSongsByDanceability,
-  getSongsByTempo,
-  useSongs,
-} from "../utils/CallingFunctions";
+import { useSongs } from "../utils/CallingFunctions";
 
 const Home = () => {
   const { songs: allSongs, loading } = useSongs();

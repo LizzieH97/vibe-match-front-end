@@ -96,7 +96,6 @@
   background-color: #60878b;
   text-decoration: none;
   color: #143118;
-
 }
 
 .song-table {
@@ -182,4 +181,8 @@
   grid-column-start: 2;
   grid-column-end: 4;
   margin: 100px auto;
+}
+.pop-table {
+  grid-column-start: 2;
+  grid-column-end: 4;
 }

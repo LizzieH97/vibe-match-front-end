@@ -5,6 +5,7 @@ import {
   fetchAllGenres,
   fetchByDanceability,
   fetchByTempo,
+  fetchSongsByPopularity,
 } from "./APICalls";
 
 import type { Song } from "../types/Song";
@@ -97,4 +98,15 @@ export const getSongsByTempo = (minVal: number, maxVal: number) => {
   return songs.map((song) => {
     return song;
   });
+};
+export const getSongsByPopularity = () => {
+  const [songs, setSongs] = useState<Song[]>([]);
+
+  useEffect(() => {
+    fetchSongsByPopularity()
+      .then((data: Song[]) => setSongs(data))
+      .catch((err) => console.error("Error fetching songs:", err));
+  }, []);
+
+  return songs;
 };
