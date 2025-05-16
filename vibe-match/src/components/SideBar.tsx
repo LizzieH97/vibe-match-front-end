@@ -11,9 +11,9 @@ const SideBar = () => {
         <a href="/danceability" className="side-menu-button">
           Want a Dance? Or not? Choose here
         </a>
-        <a href="/era" className="side-menu-button">
+        {/* <a href="/era" className="side-menu-button">
           Choose your era here
-        </a>
+        </a> */}
         <a href="/help" className="side-menu-button">
           Need some help? Inspiration?
         </a>

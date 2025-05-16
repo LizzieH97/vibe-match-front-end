@@ -12,8 +12,8 @@ const Help = () => {
                         <p className="help-para">
                             Vibe Match will curate a playlist to match your mood, so you don't
                             have to keep skipping songs that aren't what you're feeling. You
-                            can set how long the playlist is, what vibe you want or even just
-                            put a song in and let us do the heavy lifting!{" "}
+                            can set what vibe you want by
+                            searching the name of a song and let us do the heavy lifting!{" "}
                         </p>
                         <p className="help-para">
                             The sidebar to your left will let you choose a category to
