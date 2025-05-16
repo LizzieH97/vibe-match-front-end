@@ -23,7 +23,8 @@ const Home = () => {
     if (match) {
       const genreId = match.genre.id;
       const results = allSongs.filter((song) => song.genre.id === genreId);
-      setFilteredSongs(results);
+      const limitedResults = results.slice(0, 10);
+      setFilteredSongs(limitedResults);
     } else {
       setFilteredSongs([]);
     }
@@ -36,17 +37,23 @@ const Home = () => {
         <div className="main-content">
           <Header />
           <main>
-            <div>
+            <div id="searchContainer">
               <input
+                className="search-bar"
+                placeholder="What's the vibe?"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
-              <button onClick={handleSearch} disabled={loading}>
+              <button
+                className="search-button"
+                onClick={handleSearch}
+                disabled={loading}
+              >
                 Search
               </button>
-
-              {!loading && <SongTable filteredSongs={filteredSongs} />}
             </div>
+
+            {!loading && <SongTable filteredSongs={filteredSongs} />}
           </main>
         </div>
       </div>
