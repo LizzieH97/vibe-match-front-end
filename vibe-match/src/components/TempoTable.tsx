@@ -16,7 +16,9 @@ interface TempoTableProps {
 
 const TempoTable = ({ minVal, maxVal }: TempoTableProps) => {
   const mockSongs = getSongsByTempo(minVal, maxVal);
-
+  if (!minVal) {
+    return null;
+  }
   return (
     <TableContainer
       component={Paper}

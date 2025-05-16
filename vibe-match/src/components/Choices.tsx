@@ -21,9 +21,9 @@ export default function Choices({ choice }: ChoiceProps) {
   const [min, setMin] = useState(0);
   const [max, setMax] = useState(0);
   const [filterSelected, setFilterSelected] = useState(false);
-  const genreName = allGenres.map((genre) => {
-    return genre.genre;
-  });
+  const genreName = Array.from(
+    new Set(allGenres.map((genre) => genre.genre))
+  ).sort();
 
   const buttonsToRender =
     choice === ChoiceData.genre ? genreName : choice.buttons;

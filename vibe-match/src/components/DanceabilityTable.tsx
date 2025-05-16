@@ -17,8 +17,9 @@ interface DanceTableProps {
 const DanceTable = ({ minVal, maxVal }: DanceTableProps) => {
   const { songs, loading } = getSongsByDanceability(minVal, maxVal);
 
-  if (loading) return <p>Loading danceable songs...</p>;
-
+  if (!minVal) {
+    return null;
+  }
   return (
     <TableContainer
       component={Paper}
