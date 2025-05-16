@@ -26,7 +26,6 @@ const PopularityTable = () => {
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
-            {/* <TableCell>#</TableCell> */}
             <TableCell align="center">SONG TITLE</TableCell>
             <TableCell align="center">GENRE</TableCell>
           </TableRow>
@@ -34,9 +33,6 @@ const PopularityTable = () => {
         <TableBody>
           {mockSongs.map((song) => (
             <TableRow key={song.id} className="song-table-row">
-              {/* <TableCell component="th" scope="row">
-                {song.id}
-              </TableCell> */}
               <TableCell align="center" component="th" scope="row">
                 {song.track_name}
               </TableCell>
