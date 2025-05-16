@@ -15,19 +15,14 @@ interface TempoTableProps {
 }
 
 const TempoTable = ({ minVal, maxVal }: TempoTableProps) => {
-  const mockSongs = getSongsByTempo(minVal, maxVal);
+    const mockSongs = getSongsByTempo(minVal, maxVal);
+    const limitedResults = mockSongs.slice(0, 10);
+
   if (!minVal) {
     return null;
   }
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        minWidth: 400,
-        width: "40%",
-        margin: "0 auto",
-      }}
-    >
+    <TableContainer component={Paper} className="song-table-container">
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
@@ -37,7 +32,7 @@ const TempoTable = ({ minVal, maxVal }: TempoTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {mockSongs.map((song) => (
+          {limitedResults.map((song) => (
             <TableRow key={song.id} className="song-table-row">
               {/* <TableCell component="th" scope="row">
                 {song.id}

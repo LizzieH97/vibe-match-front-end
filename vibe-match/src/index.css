@@ -98,10 +98,12 @@
   color: #143118;
 }
 
-.song-table {
-  min-width: 400;
-  width: 100%;
+.song-table-container {
+  min-width: 400 !important;
+  width: 40% !important;
+  margin: 50px auto;
 }
+
 
 .song-table tr:last-child th,
 .song-table tr:last-child td {
@@ -116,10 +118,10 @@
   background-color: #67afa9;
 }
 
-.choice-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-auto-flow: row;
+.page-info-section {
+  display: flex;
+  justify-content: space-around;
+  margin: 50px auto;
 }
 
 .subtitle {
@@ -141,6 +143,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.choice-btn-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-flow: row;
+  gap: 40px;
+}
+
 .choice-button {
   height: 70px;
   width: 150px;
@@ -155,6 +165,7 @@
   align-items: center;
   justify-content: center;
   padding: 5%;
+  margin: auto;
 }
 
 .help-grid {

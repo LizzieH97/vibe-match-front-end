@@ -27,6 +27,7 @@ export default function Choices({ choice }: ChoiceProps) {
 
   const buttonsToRender =
     choice === ChoiceData.genre ? genreName : choice.buttons;
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const btnCurrent = event.currentTarget.innerHTML;
     setFilterSelected(true);
@@ -90,16 +91,20 @@ export default function Choices({ choice }: ChoiceProps) {
         <SideBar />
         <div className="main-content">
           <Header />
-          <main className="choice-grid">
-            <h2 className="subtitle">{choice.subtitle}</h2>
-            <a href="/" id="back-button">
-              Want to go back to songs?
-            </a>
-            {buttonsToRender.map((btn, i) => (
-              <button key={i} className="choice-button" onClick={handleClick}>
-                {btn}
-              </button>
-            ))}
+          <main>
+            <div className="page-info-section">
+              <h2 className="subtitle">{choice.subtitle}</h2>
+              <a href="/" id="back-button">
+                Want to go back to songs?
+              </a>
+            </div>
+            <div className="choice-btn-grid">
+              {buttonsToRender.map((btn, i) => (
+                <button key={i} className="choice-button" onClick={handleClick}>
+                  {btn}
+                </button>
+              ))}
+            </div>
             {selectedGenreId !== null && (
               <GenreTable key={selectedGenreId} genreId={selectedGenreId} />
             )}

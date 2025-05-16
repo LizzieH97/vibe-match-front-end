@@ -20,16 +20,10 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
   if (loading) return <p>Loading genre songs...</p>;
 
   const filteredSongs = songs.filter((song) => song.genre.id === genreId);
+  const limitedResults = filteredSongs.slice(0, 10);
 
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        minWidth: 400,
-        width: "40%",
-        margin: "0 auto",
-      }}
-    >
+    <TableContainer component={Paper} className="song-table-container">
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
@@ -38,7 +32,7 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredSongs.map((song) => (
+          {limitedResults.map((song) => (
             <TableRow key={song.id} className="song-table-row">
               <TableCell align="center">{song.track_name}</TableCell>
               <TableCell align="center">{song.genre.genre}</TableCell>

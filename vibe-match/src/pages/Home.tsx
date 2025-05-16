@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import {  useState } from "react";
 import Header from "../components/Header";
 import SideBar from "../components/SideBar";
 import SongTable from "../components/SongTable";
@@ -7,7 +7,7 @@ import type { Song } from "../types/Song";
 import { useSongs } from "../utils/CallingFunctions";
 
 const Home = () => {
-  const { songs: allSongs, loading } = useSongs();
+  const { songs: allSongs, loading } = useSongs(); // ✅ Called at top level
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSongs, setFilteredSongs] = useState<Song[]>([]);
 

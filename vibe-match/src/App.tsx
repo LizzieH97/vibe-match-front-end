@@ -12,7 +12,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/genres" element={<Choices choice={ChoiceData.genre} />} />
-        <Route path="/eras" element={<Choices choice={ChoiceData.era} />} />
+        {/* <Route path="/eras" element={<Choices choice={ChoiceData.era} />} /> */}
         <Route
           path="/danceability"
           element={<Choices choice={ChoiceData.danceability} />}
