@@ -7,20 +7,17 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useSongs, getSongsByGenre } from "../utils/CallingFunctions";
+import { getSongsByDanceability } from "../utils/CallingFunctions";
 
-interface GenreTableProps {
-  genreId: number;
+interface DanceTableProps {
+  minVal: number;
+  maxVal: number;
 }
 
-const GenreTable = ({ genreId }: GenreTableProps) => {
-  const mockSongs = getSongsByGenre(genreId);
+const DanceTable = ({ minVal, maxVal }: DanceTableProps) => {
+  const { songs, loading } = getSongsByDanceability(minVal, maxVal);
 
-  const filteredSongs = mockSongs.filter((song) => song.genre.id === genreId);
-
-  if (!genreId) {
-    return null;
-  }
+  if (loading) return <p>Loading danceable songs...</p>;
 
   return (
     <TableContainer
@@ -34,20 +31,14 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
-            {/* <TableCell>#</TableCell> */}
             <TableCell align="center">SONG TITLE</TableCell>
             <TableCell align="center">GENRE</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredSongs.map((song) => (
+          {songs.map((song) => (
             <TableRow key={song.id} className="song-table-row">
-              {/* <TableCell component="th" scope="row">
-                {song.id}
-              </TableCell> */}
-              <TableCell align="center" component="th" scope="row">
-                {song.track_name}
-              </TableCell>
+              <TableCell align="center">{song.track_name}</TableCell>
               <TableCell align="center">{song.genre.genre}</TableCell>
             </TableRow>
           ))}
@@ -57,4 +48,4 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
   );
 };
 
-export default GenreTable;
+export default DanceTable;

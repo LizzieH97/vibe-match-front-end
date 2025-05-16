@@ -1,5 +1,11 @@
 import { useEffect, useState } from "react";
-import { fetchAllSongs, fetchSongsByGenre, fetchAllGenres } from "./APICalls";
+import {
+  fetchAllSongs,
+  fetchSongsByGenre,
+  fetchAllGenres,
+  fetchByDanceability,
+  fetchByTempo,
+} from "./APICalls";
 
 import type { Song } from "../types/Song";
 import type { Genre } from "../types/Genre";
@@ -63,5 +69,32 @@ export const getSongsByArtist = (artistId: number) => {
 
   return songs.map((song) => {
     return song.track_name;
+  });
+};
+
+export const getSongsByDanceability = (minVal: number, maxVal: number) => {
+  const [songs, setSongs] = useState<Song[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchByDanceability(minVal, maxVal)
+      .then((data) => setSongs(data))
+      .catch((err) => console.error("Error fetching songs:", err))
+      .finally(() => setLoading(false));
+  }, [minVal, maxVal]);
+
+  return { songs, loading };
+};
+export const getSongsByTempo = (minVal: number, maxVal: number) => {
+  const [songs, setSongs] = useState<Song[]>([]);
+
+  useEffect(() => {
+    fetchByTempo(minVal, maxVal)
+      .then((data: Song[]) => setSongs(data))
+      .catch((err) => console.error("Error fetching songs:", err));
+  }, []);
+
+  return songs.map((song) => {
+    return song;
   });
 };

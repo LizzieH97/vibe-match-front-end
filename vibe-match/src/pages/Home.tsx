@@ -4,10 +4,14 @@ import SideBar from "../components/SideBar";
 import SongTable from "../components/SongTable";
 
 import type { Song } from "../types/Song";
-import { useSongs } from "../utils/CallingFunctions";
+import {
+  getSongsByDanceability,
+  getSongsByTempo,
+  useSongs,
+} from "../utils/CallingFunctions";
 
 const Home = () => {
-  const { songs: allSongs, loading } = useSongs(); // ✅ Called at top level
+  const { songs: allSongs, loading } = useSongs();
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredSongs, setFilteredSongs] = useState<Song[]>([]);
 
