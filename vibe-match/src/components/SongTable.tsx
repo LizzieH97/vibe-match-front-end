@@ -11,30 +11,29 @@ import type { Song } from "../types/Song";
 import { getAllSongs } from "../utils/CallingFunctions";
 import { useState } from "react";
 
-type SongTableProps = {
+interface SongTableProps {
   songInput: string;
 };
 
 const SongTable = ({ songInput }: SongTableProps) => {
-  const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
+  const [selectedGenreId, setSelectedGenreId] = useState<number | null>();
 
   const allSongs = getAllSongs();
 
   let filteredSongs: Song[] = [];
 
   const targetSongMatch = allSongs.find(
-    (song: Song) => song.track_name.toLowerCase() === songInput.toLowerCase()
+    (song: Song) => song.track_name.toLowerCase().trim() === songInput.toLowerCase().trim()
   );
 
-  if (targetSongMatch) {
-    setSelectedGenreId(targetSongMatch.genre.id);
-  }
+    if (targetSongMatch) {
+      setSelectedGenreId(targetSongMatch.genre.id)
+    }
+        filteredSongs = allSongs.filter(
+        (song: Song) => song.genre.id === selectedGenreId
+      );
 
-  filteredSongs = allSongs.filter(
-    (song: Song) => song.genre.id === selectedGenreId
-  );
-
-  if (songInput && filteredSongs.length > 0) {
+  if (targetSongMatch && filteredSongs.length > 0) {
     return (
       <TableContainer
         component={Paper}
