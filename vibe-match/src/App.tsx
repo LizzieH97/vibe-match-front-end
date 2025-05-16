@@ -1,9 +1,10 @@
 import "./App.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import Choices from "./components/Choices";
+import Choices from "./pages/Choices";
 import ChoiceData from "./data/ChoicesData";
-import Help from "./components/Help";
+import Help from "./pages/Help";
+import Popularity from "./pages/Popularity";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
         />
         <Route path="/tempo" element={<Choices choice={ChoiceData.tempo} />} />
         <Route path="/help" element={<Help />} />
+        <Route path="/popularity" element={<Popularity />} />
       </Routes>
     </BrowserRouter>
   );

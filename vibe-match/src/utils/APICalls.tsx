@@ -55,3 +55,8 @@ export async function fetchByTempo(
     throw err;
   }
 }
+export async function fetchSongsByPopularity(): Promise<Song[]> {
+  const res = await fetch("http://localhost:8080/api/songs/bypopularity");
+  if (!res.ok) throw new Error("Failed to fetch songs");
+  return res.json() as Promise<Song[]>;
+}
