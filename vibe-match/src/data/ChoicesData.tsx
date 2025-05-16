@@ -1,12 +1,7 @@
 const ChoiceData = {
   danceability: {
     subtitle: "Want to go back to songs?",
-    buttons: [
-      "super Dance-y",
-      "a bit dance-y",
-      "not that dance-y",
-      "not dance-y at all",
-    ],
+    buttons: ["very high", "high", "medium", "low", "barely any"],
   },
   era: {
     subtitle: "Okay! Let's choose your vibe by the era. Choose an era below:",
@@ -19,11 +14,12 @@ const ChoiceData = {
   tempo: {
     subtitle: "Okay! Let's choose your vibe by tempo. Choose a genre below:",
     buttons: [
-      "Fast",
-      "Slow",
-      "Kind of fast",
-      "Kind of slow",
-      "Soemthing like that",
+      "very fast",
+      "fast",
+      "kind of fast",
+      "kind of slow",
+      "slow",
+      "very slow",
     ],
   },
 };

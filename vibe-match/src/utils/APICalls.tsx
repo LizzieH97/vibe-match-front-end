@@ -23,3 +23,35 @@ export async function fetchAllGenres(): Promise<Genre[]> {
   if (!res.ok) throw new Error("Failed to fetch songs");
   return res.json() as Promise<Genre[]>;
 }
+export async function fetchByDanceability(
+  minVal: number,
+  maxVal: number
+): Promise<Song[]> {
+  const res = await fetch(
+    `http://localhost:8080/api/songs/bydanceability/${minVal},${maxVal}`
+  );
+  if (!res.ok) throw new Error("Failed to fetch songs");
+  return res.json() as Promise<Song[]>;
+}
+export async function fetchByTempo(
+  minVal: number,
+  maxVal: number
+): Promise<Song[]> {
+  const url = `http://localhost:8080/api/songs/bytempo/${minVal},${maxVal}`;
+
+  try {
+    const res = await fetch(url);
+
+    const raw = await res.text();
+
+    if (!res.ok) {
+      throw new Error(`Server error: ${res.status}`);
+    }
+
+    const json = JSON.parse(raw);
+    return json as Song[];
+  } catch (err) {
+    console.error("Fetch or parse error:", err);
+    throw err;
+  }
+}

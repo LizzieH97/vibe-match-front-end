@@ -7,23 +7,28 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useSongsByGenre } from "../utils/UseSongsByGenre";
+import { getSongsByDanceability } from "../utils/CallingFunctions";
 
-interface GenreTableProps {
-  genreId: number;
+interface DanceTableProps {
+  minVal: number;
+  maxVal: number;
 }
 
-const GenreTable = ({ genreId }: GenreTableProps) => {
-  const { songs, loading } = useSongsByGenre(genreId);
+const DanceTable = ({ minVal, maxVal }: DanceTableProps) => {
+  const { songs, loading } = getSongsByDanceability(minVal, maxVal);
 
-  if (!genreId) return null;
-  if (loading) return <p>Loading genre songs...</p>;
-
-  const filteredSongs = songs.filter((song) => song.genre.id === genreId);
-  const limitedResults = filteredSongs.slice(0, 10);
-
+  if (!minVal) {
+    return null;
+  }
   return (
-    <TableContainer component={Paper} className="song-table-container">
+    <TableContainer
+      component={Paper}
+      sx={{
+        minWidth: 400,
+        width: "40%",
+        margin: "0 auto",
+      }}
+    >
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
@@ -32,7 +37,7 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {limitedResults.map((song) => (
+          {songs.map((song) => (
             <TableRow key={song.id} className="song-table-row">
               <TableCell align="center">{song.track_name}</TableCell>
               <TableCell align="center">{song.genre.genre}</TableCell>
@@ -44,4 +49,4 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
   );
 };
 
-export default GenreTable;
+export default DanceTable;
