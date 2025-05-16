@@ -7,20 +7,15 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { useSongs, getSongsByGenre } from "../utils/CallingFunctions";
+import { getSongsByTempo } from "../utils/CallingFunctions";
 
-interface GenreTableProps {
-  genreId: number;
+interface TempoTableProps {
+  minVal: number;
+  maxVal: number;
 }
 
-const GenreTable = ({ genreId }: GenreTableProps) => {
-  const mockSongs = getSongsByGenre(genreId);
-
-  const filteredSongs = mockSongs.filter((song) => song.genre.id === genreId);
-
-  if (!genreId) {
-    return null;
-  }
+const TempoTable = ({ minVal, maxVal }: TempoTableProps) => {
+  const mockSongs = getSongsByTempo(minVal, maxVal);
 
   return (
     <TableContainer
@@ -40,7 +35,7 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredSongs.map((song) => (
+          {mockSongs.map((song) => (
             <TableRow key={song.id} className="song-table-row">
               {/* <TableCell component="th" scope="row">
                 {song.id}
@@ -57,4 +52,4 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
   );
 };
 
-export default GenreTable;
+export default TempoTable;
