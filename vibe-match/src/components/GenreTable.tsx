@@ -7,7 +7,7 @@ import {
   TableRow,
   Paper,
 } from "@mui/material";
-import { getAllSongs, getSongsByGenre } from "../utils/CallingFunctions";
+import { useSongs, getSongsByGenre } from "../utils/CallingFunctions";
 
 interface GenreTableProps {
   genreId: number;

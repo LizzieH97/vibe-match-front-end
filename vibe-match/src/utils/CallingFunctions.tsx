@@ -4,18 +4,26 @@ import { fetchAllSongs, fetchSongsByGenre, fetchAllGenres } from "./APICalls";
 import type { Song } from "../types/Song";
 import type { Genre } from "../types/Genre";
 
-export const getAllSongs = () => {
+export const useSongs = () => {
   const [songs, setSongs] = useState<Song[]>([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchAllSongs()
-      .then((data: Song[]) => setSongs(data))
-      .catch((err) => console.error("Error fetching songs:", err));
+    const fetchSongs = async () => {
+      try {
+        const data: Song[] = await fetchAllSongs();
+        setSongs(data);
+      } catch (error) {
+        console.error("Error fetching songs:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchSongs();
   }, []);
 
-  return songs.map((song) => {
-    return song;
-  });
+  return { songs, loading };
 };
 
 export const getAllGenres = () => {
