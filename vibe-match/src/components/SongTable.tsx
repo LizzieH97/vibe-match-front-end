@@ -17,14 +17,7 @@ const SongTable = ({ filteredSongs }: SongTableProps) => {
   if (filteredSongs.length === 0) return null;
 
   return (
-    <TableContainer
-      component={Paper}
-      sx={{
-        minWidth: 400,
-        width: "40%",
-        margin: "0 auto",
-      }}
-    >
+    <TableContainer component={Paper} className="song-table-container">
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>

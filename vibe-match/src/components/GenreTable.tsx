@@ -16,7 +16,8 @@ interface GenreTableProps {
 const GenreTable = ({ genreId }: GenreTableProps) => {
   const mockSongs = getSongsByGenre(genreId);
 
-  const filteredSongs = mockSongs.filter((song) => song.genre.id === genreId);
+    const filteredSongs = mockSongs.filter((song) => song.genre.id === genreId);
+    const limitedResults = filteredSongs.slice(0, 10);
 
   // to prevent non filtered data from displaying the table
   if (!genreId) {
@@ -26,22 +27,17 @@ const GenreTable = ({ genreId }: GenreTableProps) => {
   return (
     <TableContainer
       component={Paper}
-      sx={{
-        minWidth: 400,
-        width: "40%",
-        margin: "0 auto",
-      }}
+      className="song-table-container"
     >
       <Table className="song-table" aria-label="table of songs">
         <TableHead className="song-table-header">
           <TableRow>
-            {/* <TableCell>#</TableCell> */}
             <TableCell align="center">SONG TITLE</TableCell>
             <TableCell align="center">GENRE</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
-          {filteredSongs.map((song) => (
+          {limitedResults.map((song) => (
             <TableRow key={song.id} className="song-table-row">
               {/* <TableCell component="th" scope="row">
                 {song.id}

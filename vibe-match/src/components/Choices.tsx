@@ -23,12 +23,14 @@ export default function Choices({ choice }: ChoiceProps) {
 
   const buttonsToRender =
     choice === ChoiceData.genre ? genreName : choice.buttons;
+
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     const genreNameCurrent = event.currentTarget.innerHTML;
 
     const foundGenre = allGenres.find(
       (genre) => genre.genre === genreNameCurrent
     );
+      
     if (foundGenre) {
       setSelectedGenreId(foundGenre.id);
     }
@@ -40,19 +42,29 @@ export default function Choices({ choice }: ChoiceProps) {
         <SideBar />
         <div className="main-content">
           <Header />
-          <main className="choice-grid">
-            <h2 className="subtitle">{choice.subtitle}</h2>
-            <a href="/" id="back-button">
-              Want to go back to songs?
-            </a>
-            {buttonsToRender.map((btn, i) => (
-              <button key={i} className="choice-button" onClick={handleClick}>
-                {btn}
-              </button>
-            ))}
-            {selectedGenreId !== null && (
-              <GenreTable key={selectedGenreId} genreId={selectedGenreId} />
-            )}
+          <main>
+            <div className="page-info-section">
+              <h2 className="subtitle">{choice.subtitle}</h2>
+              <a href="/" id="back-button">
+                Want to go back to songs?
+              </a>
+            </div>
+            <div className="btns-table-container">
+              <div className="choice-btn-grid">
+                {buttonsToRender.map((btn, i) => (
+                  <button
+                    key={i}
+                    className="choice-button"
+                    onClick={handleClick}
+                  >
+                    {btn}
+                  </button>
+                ))}
+              </div>
+              {selectedGenreId !== null && (
+                <GenreTable key={selectedGenreId} genreId={selectedGenreId} />
+              )}
+            </div>
           </main>
         </div>
       </div>
